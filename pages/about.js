@@ -5,6 +5,40 @@ import Styles from "../styles/pages/About.module.scss";
 import CodeAnimation from "../components/animation";
 import { FiChevronRight } from "react-icons/fi";
 
+const work = [
+  {
+    title: "Front-end Developer",
+    company: "BugBase Security",
+    location: "Karnataka, India",
+    date: "December 2021 – Present",
+    description: `Collaborated with team of 5 programmers to raise efficiency by 25%. Designed and wrote quality code for developing the latest user-facing features and built reusable components and hooks
+for future use to increase customer retention by 40%. Migrated the website from ReactJs to NextJs`,
+  },
+  {
+    title: "Full Stack Development Intern",
+    company: "Upflux",
+    location: "Remote",
+    date: "January 2022 – March 2022",
+    description: `Migrated the database from MongoDB to PostgreSQL decreasing load time by 40% and data storage by 50%. Debugged the application while ensuring cross-platform optimization for mobile phones and responsiveness. Collaborated with team members using version control systems such as Git to organize modifications and assign tasks.`,
+  },
+  {
+    title: "Management Member",
+    company: "Project MANAS",
+    location: "MIT, Manipal",
+    date: "May 2021 – March 2022",
+    description: `Led a team of 5 to design and develop a new website for the team. Used ReactJs to increase front-end performance by
+20%.`,
+  },
+  {
+    title: "Co Founder/Technical Lead",
+    company: "GirlScript Manipal",
+    location: "MIT, Manipal",
+    date: "Sep 2021 – Present",
+    description: `Established the collegiate chapter of GirlScript with 6 others, with the aim of building a community to broaden gender
+inclusion in tech and empower beginners with mentorship.`,
+  },
+];
+
 export default function About() {
   return (
     <>
@@ -26,6 +60,36 @@ export default function About() {
         </div>
 
         <div className={Styles.heading}>Work Experience</div>
+        {work.map((item, index) => {
+          let color =
+            index % 4 === 0
+              ? "#FEA55F"
+              : index % 4 === 1
+              ? "#43D9AD"
+              : index % 4 === 2
+              ? "#E99287"
+              : "#C98BDF";
+          return (
+            <div className={Styles.work} key={index}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  color: color,
+                }}
+              >
+                <div className={Styles.workTitle}>{item.title}</div>
+                <div className={Styles.workDate}>{item.date}</div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div className={Styles.workCompany}>{item.company}</div>
+                <div className={Styles.workLocation}>{item.location}</div>
+              </div>
+
+              <div className={Styles.workDescription}>{item.description}</div>
+            </div>
+          );
+        })}
       </div>
       <Footer />
     </>

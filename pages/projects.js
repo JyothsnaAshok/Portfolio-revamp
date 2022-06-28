@@ -1,31 +1,66 @@
 import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import Styles from "../styles/pages/About.module.scss";
-import CodeAnimation from "../components/animation";
-import { FiChevronRight } from "react-icons/fi";
+import Styles from "../styles/pages/Project.module.scss";
 
-export default function About() {
+const projects = [
+  //   {
+  //     name: "Portfolio Revamp",
+  //     description: "A portfolio website that I built for my portfolio.",
+  //     link: "https://jyothsnaashok.github.io/portfolio-revamp/",
+  //   },
+  {
+    name: "Svayam",
+    description: "E-Commerce Platform for Self Help Groups",
+    technologies: "Next.js, Node.js, IPFS",
+    link: "https://svayam.vercel.app/",
+  },
+  {
+    name: "Indusby",
+    description: "B2B portal for listing Industrial waste",
+    technologies: "Ionic, Firebase, React.js",
+    link: "https://indusby.netlify.app/login",
+  },
+  {
+    name: "SexEdify",
+    description: "All things sex education",
+    technologies: "React, Sass, GraphQL",
+    link: "https://sexedify.co/",
+  },
+];
+
+export default function Projects() {
   return (
     <>
       <Head>
-        <title>About | Jyothsna Ashok</title>
+        <title>Projects | Jyothsna Ashok</title>
       </Head>
       <Navbar />
       <div className={Styles.container}>
-        <div className={Styles.heading}>About Me</div>
-
-        <div className={Styles.aboutText}>
-          I like to learn new tools and technologies and experiment with them. I
-          am a keen observer and a quick learner, and pick up anything that
-          piques my attention. My interests predominantly lie in Full-stack
-          development and Designing, actively working on Full Stack development
-          projects for Web and mobile. I am also constantly reading, learning,
-          and upskilling myself about fintech, blockchain, web3, and the latest
-          technologies.
+        <div className={Styles.heading}>Projects</div>
+        <div className={Styles.projects}>
+          {projects.map((project, index) => (
+            <div className={Styles.project} key={index}>
+              {project.name}{" "}
+              <span style={{ color: "#607b96", fontSize: "0.8rem" }}>
+                // {project.technologies}
+              </span>
+              <div className={Styles.projectCard}>
+                <div className={Styles.projectImage}></div>
+                <div className={Styles.projectTitle}>
+                  {project.description}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className={Styles.projectButton}>view-project</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className={Styles.heading}>Work Experience</div>
       </div>
       <Footer />
     </>

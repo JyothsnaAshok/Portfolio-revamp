@@ -32,12 +32,24 @@ const Navbar = () => {
           </a>
         </Link>
         <Link href="/projects">
-          <a className={Styles.navbar_link}>_projects</a>
+          <a
+            className={
+              router.pathname == "/projects"
+                ? `${Styles.navbar_link} ${Styles.active}`
+                : `${Styles.navbar_link}`
+            }
+          >
+            _projects
+          </a>
         </Link>
       </div>
       <Link href="/contact">
         <a
-          className={Styles.navbar_link}
+          className={
+            router.pathname == "/contact"
+              ? `${Styles.navbar_link} ${Styles.active}`
+              : `${Styles.navbar_link}`
+          }
           style={{ borderLeft: "1px solid #1e2d3d" }}
         >
           _contact-me

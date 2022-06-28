@@ -1,31 +1,33 @@
 import Head from "next/head";
+import Image from "next/image";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Styles from "../styles/pages/Project.module.scss";
+import indusby from "../components/images/indusbyFigma.webp";
+import sexedify from "../components/images/sexedifyFigma.webp";
+import svayam from "../components/images/svayamFigma.webp";
 
 const projects = [
-  //   {
-  //     name: "Portfolio Revamp",
-  //     description: "A portfolio website that I built for my portfolio.",
-  //     link: "https://jyothsnaashok.github.io/portfolio-revamp/",
-  //   },
   {
     name: "Svayam",
     description: "E-Commerce Platform for Self Help Groups",
     technologies: "Next.js, Node.js, IPFS",
     link: "https://svayam.vercel.app/",
+    image: svayam,
   },
   {
     name: "Indusby",
     description: "B2B portal for listing Industrial waste",
     technologies: "Ionic, Firebase, React.js",
-    link: "https://indusby.netlify.app/login",
+    link: "https://indusby.netlify.app/",
+    image: indusby,
   },
   {
     name: "SexEdify",
-    description: "All things sex education",
+    description: "All things sex education.",
     technologies: "React, Sass, GraphQL",
     link: "https://sexedify.co/",
+    image: sexedify,
   },
 ];
 
@@ -46,7 +48,15 @@ export default function Projects() {
                 // {project.technologies}
               </span>
               <div className={Styles.projectCard}>
-                <div className={Styles.projectImage}></div>
+                <div className={Styles.projectImage}>
+                  {project.image && (
+                    <Image
+                      src={project?.image}
+                      layout="responsive"
+                      style={{ objectFit: "cover", height: "50%" }}
+                    ></Image>
+                  )}
+                </div>
                 <div className={Styles.projectTitle}>
                   {project.description}
                   <a

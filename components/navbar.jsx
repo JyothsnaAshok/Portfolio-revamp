@@ -43,7 +43,7 @@ const Navbar = () => {
           </a>
         </Link>
       </div>
-      <Link href="/contact">
+      <Link href="/about#contact">
         <a
           className={
             router.pathname == "/contact"

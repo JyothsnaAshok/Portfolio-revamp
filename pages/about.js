@@ -90,7 +90,20 @@ export default function About() {
             </div>
           );
         })}
+
+        <div className={Styles.heading} id="contact">
+          Contact
+        </div>
+        <div className={Styles.contact}>
+          Hit me up using my email{" "}
+          <a href="mailto:jyothsna1809@gmail.com" style={{ color: "#fea55f" }}>
+            jyothsna1809@gmail.com
+          </a>{" "}
+          or you can reach out to me through any of my social medias listed
+          below.
+        </div>
       </div>
+
       <Footer />
     </>
   );
